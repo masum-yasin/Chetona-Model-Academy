@@ -7,9 +7,9 @@
   --blue: #0a3d7a;
   --blue-deep: #072850;
   --blue-soft: #e8f0f8;
-  --orange: #f58220;
-  --orange-hover: #ff7300;
-  --orange-soft: #ffbc7d;
+  --orange: #ee8a24;
+  --orange-hover: #d47412;
+  --orange-soft: #ee8a24;
   --text: #000000;
   --muted: #000000;
   --line: #e6e9ee;
@@ -1781,7 +1781,7 @@ select {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #ffb48a;
+  color: var(--orange);
 }
 
 .campus-hero-copy h1 {
@@ -2558,6 +2558,33 @@ select {
   border-left: 4px solid var(--orange);
   border-radius: 8px;
   padding: 22px;
+  overflow: hidden;
+}
+
+.grow-pillars .pillar {
+  padding: 0;
+  border-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.grow-pillars .pillar img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.grow-pillars .pillar:nth-child(1) img { object-position: center 55%; }
+.grow-pillars .pillar:nth-child(2) img { object-position: center 40%; }
+.grow-pillars .pillar:nth-child(3) img { object-position: center center; }
+.grow-pillars .pillar:nth-child(4) img { object-position: center 40%; }
+.grow-pillars .pillar:nth-child(5) img { object-position: center 45%; }
+.grow-pillars .pillar:nth-child(6) img { object-position: center 30%; }
+
+.pillar-copy {
+  padding: 16px 18px 18px;
+  border-top: 3px solid var(--orange);
 }
 
 .pillar h3 {
@@ -2570,6 +2597,35 @@ select {
 .pillar p {
   font-size: 0.92rem;
   color: var(--muted);
+}
+
+@media (min-width: 900px) {
+  .grow-pillars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grow-pillars {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+
+  .grow-pillars .pillar img {
+    height: 140px;
+  }
+
+  .pillar-copy {
+    padding: 12px 12px 14px;
+  }
+
+  .grow-pillars .pillar h3 {
+    font-size: 0.92rem;
+  }
+
+  .grow-pillars .pillar p {
+    font-size: 0.8rem;
+  }
 }
 
 .process {
@@ -3141,12 +3197,16 @@ select {
   .form-grid,
   .news-grid,
   .testimonial-grid,
-  .pillars,
+  .pillars:not(.grow-pillars),
   .process,
   .stats-row,
   .zig-row,
   .principal-grid {
     grid-template-columns: 1fr;
+  }
+
+  .grow-pillars {
+    grid-template-columns: 1fr 1fr;
   }
 
   .zig-row--flip .zig-media,
@@ -3214,7 +3274,8 @@ select {
 @media (max-width: 560px) {
   .program-grid,
   .facility-grid,
-  .footer-grid {
+  .footer-grid,
+  .grow-pillars {
     grid-template-columns: 1fr;
   }
 
@@ -3399,7 +3460,7 @@ select {
 
 .about-values li {
   background: linear-gradient(135deg, #fff7f0, #fff);
-  border: 1px solid #f0d8c4;
+  border: 1px solid var(--orange);
   color: var(--blue-deep);
   font-size: 0.78rem;
   font-weight: 700;
@@ -3625,7 +3686,7 @@ select {
   height: 13px;
   border-radius: 50%;
   background: var(--orange);
-  box-shadow: 0 0 0 5px #fff, 0 0 0 6px #f0d8c4;
+  box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--orange);
 }
 
 .about-timeline strong {
@@ -4214,7 +4275,7 @@ select {
 
 .admit-status--wait {
   background: #fff4e8;
-  color: #b35a00;
+  color: var(--orange);
 }
 
 .admit-next {
@@ -4786,7 +4847,7 @@ select {
   width: 56px;
   height: 3px;
   border-radius: 99px;
-  background: linear-gradient(90deg, var(--orange), #ffb347);
+  background: linear-gradient(90deg, var(--orange), var(--orange));
   margin: 0 0 18px;
 }
 
@@ -4972,7 +5033,7 @@ select {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--orange), #ffb347, var(--blue));
+  background: linear-gradient(90deg, var(--orange), var(--orange), var(--blue));
   opacity: 0.9;
 }
 
